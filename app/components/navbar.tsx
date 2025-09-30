@@ -1,8 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  navigationMenuTriggerStyle,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
 
 const navItems = [
   {
@@ -31,28 +39,27 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="font-bold text-xl">
-          Telugu Youth of America
-        </Link>
-        <div className="flex items-center space-x-6">
+    <div className="flex h-16 items-center justify-center gap-4">
+      <NavigationMenu>
+        <NavigationMenuList>
           {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                pathname === item.href
-                  ? "text-foreground"
-                  : "text-muted-foreground"
-              )}
-            >
-              {item.name}
-            </Link>
+            <NavigationMenuItem key={item.href}>
+              <NavigationMenuLink
+                href={item.href}
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  "text-sm font-medium transition-colors",
+                  pathname === item.href
+                    ? "text-foreground bg-accent"
+                    : "text-muted-foreground hover:text-primary"
+                )}
+              >
+                {item.name}
+              </NavigationMenuLink>
+            </NavigationMenuItem>
           ))}
-        </div>
-      </div>
-    </nav>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
   );
 }

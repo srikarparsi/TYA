@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./components/navbar";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Image src="/logo.png" alt="Telugu Youth of America" width={40} height={40} className="absolute top-3 left-3" />
         <Navbar />
         <main className="min-h-[calc(100vh-4rem)]">
           {children}

@@ -11,7 +11,7 @@ export default function Home() {
           Telugu Youth of America
         </h1>
         <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Connecting, empowering, and celebrating the Telugu youth community across America
+          &quot;For the youth, by the youth&quot;
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/get-involved">
@@ -30,10 +30,7 @@ export default function Home() {
           <Card>
             <CardContent className="p-8">
               <p className="text-lg text-center leading-relaxed">
-                We are dedicated to building a vibrant community that preserves our Telugu heritage 
-                while embracing the opportunities that America provides. Through events, educational 
-                content, and meaningful connections, we empower young Telugu Americans to thrive 
-                culturally, professionally, and personally.
+              TYA Telugu Youth of America is dedicated to enriching the cultural heritage of Telugu youth in America, providing opportunities for growth and empowerment.
               </p>
             </CardContent>
           </Card>
