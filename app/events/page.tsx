@@ -21,7 +21,7 @@ export default function EventsPage() {
       {/* Hero Section */}
       <HeroSection
         title="Events"
-        description="Join us for exciting community events that celebrate Telugu culture and bring our youth together"
+        description="Join us for exciting community events that celebrate Telugu culture"
       />
 
       <div className="container mx-auto px-4 py-8">

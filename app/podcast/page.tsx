@@ -109,14 +109,7 @@ export default function PodcastPage() {
           <CTASection
             title="Have a Story to Share?"
             description="We're always looking for inspiring voices and compelling stories from the Telugu youth community."
-            buttons={[
-              { text: "Submit Your Story", href: "#" },
-              {
-                text: "Get Involved",
-                href: "/get-involved",
-                variant: "outline",
-              },
-            ]}
+            buttons={[{ text: "Submit Your Story", href: "#" }]}
           />
         </div>
       </div>

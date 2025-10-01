@@ -45,7 +45,7 @@ export default function Home() {
             </Card>
             <Card className="text-center shadow-lg border-t-4 border-t-pink-500">
               <CardContent className="pt-8 pb-6">
-                <div className="text-4xl font-bold text-pink-600 mb-2">50+</div>
+                <div className="text-4xl font-bold text-pink-600 mb-2">10+</div>
                 <p className="text-muted-foreground font-medium">
                   Events Hosted
                 </p>

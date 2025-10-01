@@ -2,6 +2,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -85,17 +86,15 @@ export function ImageCard({
         </CardTitle>
         {description && <CardDescription>{description}</CardDescription>}
       </CardHeader>
-      {(children || buttonText) && (
-        <CardContent>
-          {children}
-          {buttonText && buttonHref && (
-            <Link href={buttonHref}>
-              <Button variant={buttonVariant} className="w-full">
-                {buttonText}
-              </Button>
-            </Link>
-          )}
-        </CardContent>
+      {children && <CardContent>{children}</CardContent>}
+      {buttonText && buttonHref && (
+        <CardFooter className="mt-auto">
+          <Link href={buttonHref} className="w-full">
+            <Button variant={buttonVariant} className="w-full">
+              {buttonText}
+            </Button>
+          </Link>
+        </CardFooter>
       )}
     </Card>
   );

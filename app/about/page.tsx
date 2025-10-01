@@ -1,13 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   HeroSection,
   CTASection,
@@ -98,29 +89,47 @@ export default function AboutPage() {
           <section>
             <h2 className="text-4xl font-bold text-center mb-12">Our Values</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <FeatureCard icon="🤝" title="Community">
-                <p className="text-lg">
-                  Building strong connections within the Telugu youth community.
-                </p>
-              </FeatureCard>
+              <Card className="shadow-xl border">
+                <CardContent className="p-8">
+                  <div className="text-4xl mb-3">🤝</div>
+                  <h3 className="text-3xl font-semibold mb-4">Community</h3>
+                  <p className="text-lg">
+                    Building strong connections within the Telugu youth
+                    community.
+                  </p>
+                </CardContent>
+              </Card>
 
-              <FeatureCard icon="🎭" title="Culture">
-                <p className="text-lg">
-                  Preserving and celebrating our Telugu heritage and traditions.
-                </p>
-              </FeatureCard>
+              <Card className="shadow-xl border">
+                <CardContent className="p-8">
+                  <div className="text-4xl mb-3">🎭</div>
+                  <h3 className="text-3xl font-semibold mb-4">Culture</h3>
+                  <p className="text-lg">
+                    Preserving and celebrating our Telugu heritage and
+                    traditions.
+                  </p>
+                </CardContent>
+              </Card>
 
-              <FeatureCard icon="🌱" title="Growth">
-                <p className="text-lg">
-                  Empowering young people to reach their full potential.
-                </p>
-              </FeatureCard>
+              <Card className="shadow-xl border">
+                <CardContent className="p-8">
+                  <div className="text-4xl mb-3">🌱</div>
+                  <h3 className="text-3xl font-semibold mb-4">Growth</h3>
+                  <p className="text-lg">
+                    Empowering young people to reach their full potential.
+                  </p>
+                </CardContent>
+              </Card>
 
-              <FeatureCard icon="✨" title="Impact">
-                <p className="text-lg">
-                  Making a positive difference in our communities.
-                </p>
-              </FeatureCard>
+              <Card className="shadow-xl border">
+                <CardContent className="p-8">
+                  <div className="text-4xl mb-3">✨</div>
+                  <h3 className="text-3xl font-semibold mb-4">Impact</h3>
+                  <p className="text-lg">
+                    Making a positive difference in our communities.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </section>
 
