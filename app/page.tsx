@@ -104,7 +104,7 @@ export default function Home() {
                 />
               </div>
               <div>
-                <Card className="border-none shadow-lg">
+                <Card className="shadow-xl border">
                   <CardContent className="p-8">
                     <p className="text-xl leading-relaxed mb-6">
                       TYA Telugu Youth of America is dedicated to enriching the
@@ -142,7 +142,7 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-center mb-12">
               Upcoming Events
             </h2>
-            <Card className="max-w-4xl mx-auto shadow-xl overflow-hidden py-0">
+            <Card className="max-w-4xl mx-auto shadow-xl border overflow-hidden py-0">
               <div className="md:flex">
                 <div className="md:w-2/5 relative h-64 md:h-auto">
                   <Image
@@ -152,7 +152,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="md:w-3/5 my-5">
+                <div className="md:w-3/5 my-7">
                   <CardHeader>
                     <CardTitle className="text-3xl">
                       Diwali Celebration
@@ -238,7 +238,7 @@ export default function Home() {
           <section>
             <h2 className="text-4xl font-bold text-center mb-12">Explore</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="hover:shadow-2xl transition-all hover:-translate-y-1 overflow-hidden pt-0">
+              <Card className="shadow-xl border hover:shadow-2xl transition-all hover:-translate-y-1 overflow-hidden pt-0">
                 <div className="relative h-48">
                   <Image
                     src="https://picsum.photos/600/400?random=7"
@@ -253,7 +253,7 @@ export default function Home() {
                     Stories, discussions, and insights from our community
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="justify-end">
+                <CardContent>
                   <Link href="/podcast">
                     <Button variant="outline" className="w-full">
                       Explore Podcasts
@@ -262,7 +262,7 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-2xl transition-all hover:-translate-y-1 overflow-hidden pt-0">
+              <Card className="shadow-xl border hover:shadow-2xl transition-all hover:-translate-y-1 overflow-hidden pt-0">
                 <div className="relative h-48">
                   <Image
                     src="https://picsum.photos/600/400?random=8"
@@ -286,7 +286,7 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-2xl transition-all hover:-translate-y-1 overflow-hidden pt-0">
+              <Card className="shadow-xl border hover:shadow-2xl transition-all hover:-translate-y-1 overflow-hidden pt-0">
                 <div className="relative h-48">
                   <Image
                     src="https://picsum.photos/600/400?random=9"
