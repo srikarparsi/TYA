@@ -25,8 +25,8 @@ export default function EventsPage() {
           {upcomingEvents.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {upcomingEvents.map((event) => (
-                <Card key={event.id} className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
-                  <div className="relative aspect-video overflow-hidden rounded-t-lg">
+                <Card key={event.id} className="group hover:shadow-lg transition-all duration-300 cursor-pointer pt-0 overflow-hidden">
+                  <div className="relative aspect-video overflow-hidden">
                     <Image
                       src={event.images[0] || 'https://picsum.photos/400/300?random=10'}
                       alt={event.title}
@@ -40,13 +40,13 @@ export default function EventsPage() {
                       </span>
                     </div>
                   </div>
-                  <CardHeader>
+                  <CardHeader className="p-6">
                     <CardTitle className="group-hover:text-primary transition-colors">
                       {event.title}
                     </CardTitle>
                     <CardDescription>{event.shortDescription}</CardDescription>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="p-6 pt-0">
                     <div className="space-y-2 mb-4">
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Calendar className="h-4 w-4" />
@@ -91,8 +91,8 @@ export default function EventsPage() {
           {pastEvents.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {pastEvents.map((event) => (
-                <Card key={event.id} className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
-                  <div className="relative aspect-video overflow-hidden rounded-t-lg">
+                <Card key={event.id} className="group hover:shadow-lg transition-all duration-300 cursor-pointer pt-0 overflow-hidden">
+                  <div className="relative aspect-video overflow-hidden">
                     <Image
                       src={event.images[0] || 'https://picsum.photos/400/300?random=10'}
                       alt={event.title}
@@ -106,13 +106,13 @@ export default function EventsPage() {
                       </span>
                     </div>
                   </div>
-                  <CardHeader>
+                  <CardHeader className="p-6">
                     <CardTitle className="group-hover:text-primary transition-colors">
                       {event.title}
                     </CardTitle>
                     <CardDescription>{event.shortDescription}</CardDescription>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="p-6 pt-0">
                     <div className="space-y-2 mb-4">
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Calendar className="h-4 w-4" />

@@ -171,7 +171,7 @@ export default function EventDetailPage() {
                   
                   {/* Testimonial Content */}
                   <blockquote className="text-sm leading-relaxed mb-4 italic">
-                    "{testimonial.content}"
+                    &ldquo;{testimonial.content}&rdquo;
                   </blockquote>
                   
                   {/* Author */}
@@ -210,7 +210,7 @@ export default function EventDetailPage() {
       <div className="mt-12 text-center">
         <h3 className="text-2xl font-bold mb-4">Stay Connected</h3>
         <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-          Don't miss out on future events and community activities. Join our community to stay updated.
+          Don&apos;t miss out on future events and community activities. Join our community to stay updated.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/get-involved">

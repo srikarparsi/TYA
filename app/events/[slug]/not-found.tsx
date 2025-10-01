@@ -23,12 +23,12 @@ export default function EventNotFound() {
             </div>
             <CardTitle className="text-2xl">Event Not Found</CardTitle>
             <CardDescription className="text-lg">
-              The event you're looking for doesn't exist or may have been moved.
+              The event you&apos;re looking for doesn&apos;t exist or may have been moved.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-6">
-              Don't worry! You can explore our other events or check back later 
+              Don&apos;t worry! You can explore our other events or check back later 
               as we regularly add new community events.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

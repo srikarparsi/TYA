@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Telugu Youth of America",
-  description: "Connecting, empowering, and celebrating the Telugu youth community across America",
+  description: " cting, empowering, and celebrating the Telugu youth community across America",
 };
 
 export default function RootLayout({
@@ -29,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Image src="/logo.png" alt="Telugu Youth of America" width={40} height={40} className="absolute top-3 left-3" />
+        <Image src="/logo.png" alt="Telugu Youth of America" width={40} height={40} className="absolute top-3 left-3 sm:block hidden" />
         <Navbar />
         <main className="min-h-[calc(100vh-4rem)]">
           {children}
