@@ -22,7 +22,7 @@ interface FeatureCardProps {
   icon?: React.ReactNode;
   imageSrc?: string;
   imageAlt?: string;
-  imagePosition?: "left" | "right" | "top" | "none";
+  imagePosition?: "left" | "right";
   children?: React.ReactNode;
   buttons?: FeatureButton[];
   className?: string;
@@ -35,58 +35,12 @@ export function FeatureCard({
   icon,
   imageSrc,
   imageAlt = "",
-  imagePosition = "none",
+  imagePosition = "left",
   children,
   buttons,
   className = "",
   cardClassName = "",
 }: FeatureCardProps) {
-  // Standalone card (no image)
-  if (imagePosition === "none") {
-    return (
-      <Card
-        className={`shadow-xl border hover:shadow-2xl transition-all ${cardClassName}`}
-      >
-        <CardHeader>
-          {icon && <div className="text-4xl mb-3">{icon}</div>}
-          <CardTitle className={description ? "text-2xl" : "text-3xl"}>
-            {title}
-          </CardTitle>
-          {description && <CardDescription>{description}</CardDescription>}
-        </CardHeader>
-        {(children || buttons) && (
-          <CardContent>
-            {children}
-            {buttons && buttons.length > 0 && (
-              <div className="flex flex-col sm:flex-row gap-4 mt-6">
-                {buttons.map((button, index) => {
-                  const buttonElement = (
-                    <Button
-                      key={index}
-                      onClick={button.onClick}
-                      variant={button.variant || "outline"}
-                      className="w-full sm:w-auto"
-                    >
-                      {button.text}
-                    </Button>
-                  );
-
-                  return button.href ? (
-                    <Link key={index} href={button.href}>
-                      {buttonElement}
-                    </Link>
-                  ) : (
-                    buttonElement
-                  );
-                })}
-              </div>
-            )}
-          </CardContent>
-        )}
-      </Card>
-    );
-  }
-
   // Card with image layout
   const imageElement = imageSrc && (
     <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">
@@ -101,8 +55,8 @@ export function FeatureCard({
   );
 
   const cardElement = (
-    <Card className={`shadow-xl border ${cardClassName}`}>
-      <CardContent className="p-8">
+    <Card className={`shadow-xl border h-full flex flex-col ${cardClassName}`}>
+      <CardContent className="p-8 flex-1 flex flex-col justify-center">
         {icon && <div className="text-4xl mb-3">{icon}</div>}
         {description ? (
           <>
@@ -151,24 +105,18 @@ export function FeatureCard({
 
   // Layout based on image position
   return (
-    <div className={`grid md:grid-cols-2 gap-8 items-center ${className}`}>
+    <div className={`grid md:grid-cols-2 gap-8 items-stretch ${className}`}>
       {imagePosition === "left" && (
         <>
-          <div className="order-2 md:order-1">{imageElement}</div>
-          <div className="order-1 md:order-2">{cardElement}</div>
+          <div className="order-2 md:order-1 h-full">{imageElement}</div>
+          <div className="order-1 md:order-2 h-full">{cardElement}</div>
         </>
       )}
       {imagePosition === "right" && (
         <>
-          {imageElement}
-          {cardElement}
+          <div className="h-full">{imageElement}</div>
+          <div className="h-full">{cardElement}</div>
         </>
-      )}
-      {imagePosition === "top" && (
-        <div className="col-span-full">
-          {imageElement}
-          <div className="mt-8">{cardElement}</div>
-        </div>
       )}
     </div>
   );

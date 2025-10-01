@@ -8,25 +8,16 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { HeroSection, CTASection, ImageCard } from "@/components/custom";
 
 export default function PodcastPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 text-white py-24 md:py-32">
-        <div className="absolute inset-0 bg-black/40"></div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
-              Our Podcast
-            </h1>
-            <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
-              Stories, discussions, and insights from the Telugu youth community
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title="Our Podcast"
+        description="Stories, discussions, and insights from the Telugu youth community"
+      />
 
       <div className="container mx-auto px-4 py-8">
         <div className="space-y-20">
@@ -36,28 +27,20 @@ export default function PodcastPage() {
               Past Episodes
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Card className="shadow-xl border hover:shadow-2xl transition-all hover:-translate-y-1 overflow-hidden pt-0">
-                <div className="relative h-48">
-                  <Image
-                    src="https://picsum.photos/600/400?random=30"
-                    alt="Episode 1"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle>Episode 1: Sample Episode</CardTitle>
-                  <CardDescription>Episode Description</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="mb-4">
-                    Summary of the podcast episode content goes here.
-                  </p>
-                  <Button className="w-full" variant="outline">
-                    Listen Now
-                  </Button>
-                </CardContent>
-              </Card>
+              <ImageCard
+                imageSrc="https://picsum.photos/600/400?random=30"
+                imageAlt="Episode 1"
+                title="Episode 1: Sample Episode"
+                description="Episode Description"
+                buttonText="Listen Now"
+                buttonHref="#"
+                buttonVariant="outline"
+                aspectRatio="wide"
+              >
+                <p className="mb-4">
+                  Summary of the podcast episode content goes here.
+                </p>
+              </ImageCard>
             </div>
           </section>
 
@@ -123,30 +106,18 @@ export default function PodcastPage() {
           </section>
 
           {/* Call to Action */}
-          <section className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-white text-center shadow-2xl">
-            <h2 className="text-4xl font-bold mb-4">Have a Story to Share?</h2>
-            <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-              We&apos;re always looking for inspiring voices and compelling
-              stories from the Telugu youth community.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-white text-purple-700 hover:bg-gray-100 font-semibold px-10"
-              >
-                Submit Your Story
-              </Button>
-              <Link href="/get-involved">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-purple-700 font-semibold px-10"
-                >
-                  Get Involved
-                </Button>
-              </Link>
-            </div>
-          </section>
+          <CTASection
+            title="Have a Story to Share?"
+            description="We're always looking for inspiring voices and compelling stories from the Telugu youth community."
+            buttons={[
+              { text: "Submit Your Story", href: "#" },
+              {
+                text: "Get Involved",
+                href: "/get-involved",
+                variant: "outline",
+              },
+            ]}
+          />
         </div>
       </div>
     </div>

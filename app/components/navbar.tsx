@@ -15,7 +15,7 @@ import {
 const navItems = [
   {
     name: "Home",
-    href: "/",
+    href: "/home",
   },
   {
     name: "Events",
@@ -49,7 +49,7 @@ export function Navbar() {
                 className={cn(
                   navigationMenuTriggerStyle(),
                   "text-sm font-medium transition-colors",
-                  pathname === item.href
+                  pathname.includes(item.href)
                     ? "text-foreground bg-accent"
                     : "text-muted-foreground hover:text-primary"
                 )}

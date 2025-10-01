@@ -20,6 +20,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { getEventBySlug } from "@/lib/events-data";
+import { CTASection } from "@/components/custom/cta-section";
 
 export default function EventDetailPage() {
   const params = useParams();
@@ -223,32 +224,18 @@ export default function EventDetailPage() {
       )}
 
       {/* Call to Action */}
-      <section className="mt-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-white text-center shadow-2xl">
-        <h2 className="text-4xl font-bold mb-4">Stay Connected</h2>
-        <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-          Don&apos;t miss out on future events and community activities. Join
-          our community to stay updated.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/get-involved">
-            <Button
-              size="lg"
-              className="bg-white text-purple-700 hover:bg-gray-100 font-semibold px-10"
-            >
-              Get Involved
-            </Button>
-          </Link>
-          <Link href="/events">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-purple-700 font-semibold px-10"
-            >
-              View All Events
-            </Button>
-          </Link>
-        </div>
-      </section>
+      <div className="mt-12">
+        <CTASection
+          title="Stay Connected"
+          description="Don't miss out on future events and community activities. Join our community to stay updated."
+          buttons={[
+            {
+              text: "Get Involved",
+              href: "/get-involved",
+            },
+          ]}
+        />
+      </div>
     </div>
   );
 }

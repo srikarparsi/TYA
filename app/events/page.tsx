@@ -10,6 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 import { getEventsByStatus } from "@/lib/events-data";
+import { HeroSection, CTASection } from "@/components/custom";
 
 export default function EventsPage() {
   const upcomingEvents = getEventsByStatus("upcoming");
@@ -18,21 +19,10 @@ export default function EventsPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 text-white py-24 md:py-32">
-        <div className="absolute inset-0 bg-black/40"></div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
-              Events
-            </h1>
-            <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
-              Join us for exciting community events that celebrate Telugu
-              culture and bring our youth together
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title="Events"
+        description="Join us for exciting community events that celebrate Telugu culture and bring our youth together"
+      />
 
       <div className="container mx-auto px-4 py-8">
         <div className="space-y-20">
@@ -193,32 +183,13 @@ export default function EventsPage() {
           </section>
 
           {/* Call to Action */}
-          <section className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-white text-center shadow-2xl">
-            <h2 className="text-4xl font-bold mb-4">Don&apos;t Miss Out!</h2>
-            <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-              Stay connected with our community to never miss an event. Join us
-              in celebrating Telugu culture and building lasting connections.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/get-involved">
-                <Button
-                  size="lg"
-                  className="bg-white text-purple-700 hover:bg-gray-100 font-semibold px-10"
-                >
-                  Get Involved
-                </Button>
-              </Link>
-              <Link href="/about">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-purple-700 font-semibold px-10"
-                >
-                  Learn More
-                </Button>
-              </Link>
-            </div>
-          </section>
+          <CTASection
+            title="Don't Miss Out!"
+            description="Stay connected with our community to never miss an event. Join us in celebrating Telugu culture and building lasting connections."
+            buttons={[
+              { text: "Get Involved", href: "/get-involved" },
+            ]}
+          />
         </div>
       </div>
     </div>
