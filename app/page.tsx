@@ -137,10 +137,10 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Featured Event */}
+          {/* Upcoming Events */}
           <section>
             <h2 className="text-4xl font-bold text-center mb-12">
-              Featured Event
+              Upcoming Events
             </h2>
             <Card className="max-w-4xl mx-auto shadow-xl overflow-hidden py-0">
               <div className="md:flex">
@@ -154,7 +154,9 @@ export default function Home() {
                 </div>
                 <div className="md:w-3/5 my-5">
                   <CardHeader>
-                    <CardTitle className="text-3xl">Upcoming Event</CardTitle>
+                    <CardTitle className="text-3xl">
+                      Diwali Celebration
+                    </CardTitle>
                     <CardDescription className="text-lg">
                       Don&apos;t miss our next community gathering
                     </CardDescription>
