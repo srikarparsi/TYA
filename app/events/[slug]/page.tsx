@@ -4,7 +4,13 @@ import { useParams, notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, MapPin, Calendar, Star } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -18,9 +24,9 @@ import { getEventBySlug } from "@/lib/events-data";
 export default function EventDetailPage() {
   const params = useParams();
   const slug = params.slug as string;
-  
+
   const event = getEventBySlug(slug);
-  
+
   if (!event) {
     notFound();
   }
@@ -30,7 +36,7 @@ export default function EventDetailPage() {
       <Star
         key={i}
         className={`h-4 w-4 ${
-          i < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
+          i < rating ? "text-yellow-400 fill-current" : "text-gray-300"
         }`}
       />
     ));
@@ -54,11 +60,13 @@ export default function EventDetailPage() {
         <div className="flex flex-col md:flex-row gap-4 text-muted-foreground mb-4">
           <div className="flex items-center gap-2">
             <Calendar className="h-4 w-4" />
-            <span>{new Date(event.date).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long', 
-              day: 'numeric'
-            })}</span>
+            <span>
+              {new Date(event.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </span>
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="h-4 w-4" />
@@ -71,16 +79,15 @@ export default function EventDetailPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Content - Image Carousel */}
         <div className="lg:col-span-2">
-          <Card>
+          <Card className="shadow-xl border">
             <CardHeader>
               <CardTitle>Event Gallery</CardTitle>
               <CardDescription>
-                {event.images.length > 1 
+                {event.images.length > 1
                   ? `Browse through ${event.images.length} photos from this event`
-                  : event.status === 'upcoming' 
-                    ? 'Event photos will be added after the event'
-                    : 'Photo from this event'
-                }
+                  : event.status === "upcoming"
+                  ? "Event photos will be added after the event"
+                  : "Photo from this event"}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -120,24 +127,26 @@ export default function EventDetailPage() {
         {/* Sidebar - Event Details */}
         <div className="space-y-6">
           {/* Event Status */}
-          <Card>
+          <Card className="shadow-xl border">
             <CardHeader>
               <CardTitle>Event Status</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                event.status === 'upcoming' 
-                  ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200'
-                  : 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
-              }`}>
-                {event.status === 'upcoming' ? 'Upcoming Event' : 'Past Event'}
+              <div
+                className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+                  event.status === "upcoming"
+                    ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+                    : "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                }`}
+              >
+                {event.status === "upcoming" ? "Upcoming Event" : "Past Event"}
               </div>
             </CardContent>
           </Card>
 
           {/* Quick Actions */}
-          {event.status === 'upcoming' && (
-            <Card>
+          {event.status === "upcoming" && (
+            <Card className="shadow-xl border">
               <CardHeader>
                 <CardTitle>Join This Event</CardTitle>
               </CardHeader>
@@ -157,10 +166,15 @@ export default function EventDetailPage() {
       {/* Testimonials Section */}
       {event.testimonials.length > 0 && (
         <div className="mt-12">
-          <h2 className="text-3xl font-bold mb-6">What Attendees Said</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-4xl font-bold mb-12 text-center">
+            What Attendees Said
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {event.testimonials.map((testimonial) => (
-              <Card key={testimonial.id} className="h-full">
+              <Card
+                key={testimonial.id}
+                className="h-full shadow-xl border hover:shadow-2xl transition-all"
+              >
                 <CardContent className="p-6">
                   {/* Rating */}
                   {testimonial.rating && (
@@ -168,12 +182,12 @@ export default function EventDetailPage() {
                       {renderStars(testimonial.rating)}
                     </div>
                   )}
-                  
+
                   {/* Testimonial Content */}
                   <blockquote className="text-sm leading-relaxed mb-4 italic">
                     &ldquo;{testimonial.content}&rdquo;
                   </blockquote>
-                  
+
                   {/* Author */}
                   <div className="flex items-center gap-3">
                     {testimonial.avatar ? (
@@ -195,7 +209,9 @@ export default function EventDetailPage() {
                     <div>
                       <p className="font-medium text-sm">{testimonial.name}</p>
                       {testimonial.role && (
-                        <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {testimonial.role}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -206,21 +222,33 @@ export default function EventDetailPage() {
         </div>
       )}
 
-      {/* Related Events or Call to Action */}
-      <div className="mt-12 text-center">
-        <h3 className="text-2xl font-bold mb-4">Stay Connected</h3>
-        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-          Don&apos;t miss out on future events and community activities. Join our community to stay updated.
+      {/* Call to Action */}
+      <section className="mt-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-white text-center shadow-2xl">
+        <h2 className="text-4xl font-bold mb-4">Stay Connected</h2>
+        <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+          Don&apos;t miss out on future events and community activities. Join
+          our community to stay updated.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/get-involved">
-            <Button size="lg">Get Involved</Button>
+            <Button
+              size="lg"
+              className="bg-white text-purple-700 hover:bg-gray-100 font-semibold px-10"
+            >
+              Get Involved
+            </Button>
           </Link>
           <Link href="/events">
-            <Button variant="outline" size="lg">View All Events</Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-white text-white hover:bg-white hover:text-purple-700 font-semibold px-10"
+            >
+              View All Events
+            </Button>
           </Link>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
